@@ -2,7 +2,7 @@
 
 {% set qu %}
 
-create table dummy(
+create or replace table dummy(
     name string,
     age number
 )
