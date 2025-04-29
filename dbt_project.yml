@@ -28,7 +28,7 @@ version: '1.0.0'
 config-version: 2
 
 analysis-paths:
-  - analysis
+  - analyses
 clean-targets:
   - target
 seed-paths:
