@@ -47,8 +47,9 @@ vars:
 
 models:
   dbtvault_snowflake_demo:
-    example:
-      # enabled: false
+    # example:
+    #   enabled: true
+    #   +materialized : table
     
     raw_stage:
       tags:
