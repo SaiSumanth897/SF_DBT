@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: dbut
+    database: sf_dbt
+    schema: utilpack
+    tables:
+      - name: emp_yash
+      - name: emp_yash_dep
+
+models:
+  - name: emp_yash_dep
+    columns:
+      - name: deptid
+        tests:
+          - relationships:
+              to: ref('emp_yash')
+              field: deptid

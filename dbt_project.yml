@@ -50,6 +50,9 @@ models:
     # example:
     #   enabled: true
     #   +materialized : table
+
+    utils:
+      +materialized : table
     
     raw_stage:
       tags:

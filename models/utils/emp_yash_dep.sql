@@ -1,0 +1,1 @@
+select * from {{ source ('dbut','emp_yash_dep')}}
