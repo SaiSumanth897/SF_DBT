@@ -38,8 +38,34 @@ models:
   #         # ignore_time_component : True
 
 # most_recent value > treshold then it is good
+  # - name: emp_yash
+  #   columns:
+  #     - name: deptid
+  #       tests:
+  #         - dbt_utils.cardinality_equality:
+  #             field: deptid
+  #             to: ref('emp_yash_dep')
+
+  # - name: emp_yash
+  #   columns:
+  #     - name: location
+  #       tests:
+  #         - dbt_utils.not_null_proportion:
+  #             at_least: 0.95
+
   - name: emp_yash
     columns:
-      - name: ldts
+      - name: empid
         tests:
-          - dbt_utils.not_constant
+          - dbt_utils.sequential_values:
+              interval: 10
+              # datepart: 'hour'
+
+  - name: emp_yash
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - name
+            - location
+
+
