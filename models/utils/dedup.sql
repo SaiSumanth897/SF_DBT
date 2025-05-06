@@ -1,4 +1,5 @@
-{# with cte as(
+{#
+with cte as(
     {{dbt_utils.deduplicate( ref('emp_yash'),"deptid","name desc")}}
 )
 
@@ -59,11 +60,17 @@ select * from {{ref('emp_yash')}}
 
 {{ a}}
 
-#}
+
 
 {{ dbt_utils.get_table_types_sql() }}
 
+ 
+with ct as (
 {{ dbt_utils.nullcheck_table(ref('emp_yash')) }}
 
-select * , {{dbt_utils.nullcheck(name)}}
+)
+
+select * from ct #}
+
+select {{ dbt_utils.nullcheck() }}
 from {{ref('emp_yash')}}

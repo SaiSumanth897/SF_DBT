@@ -9,10 +9,37 @@ sources:
       - name: emp_yash_dep
 
 models:
-  - name: emp_yash_dep
+  # - name: emp_yash_dep
+  #   columns:
+  #     - name: deptid
+  #       tests:
+  #         - relationships:
+  #             to: ref('emp_yash')
+  #             field: deptid
+
+  # - name : emp_yash
+  #   tests:
+  #     - dbt_utils.equality:
+  #         compare_model: ref('emp_yash_dep')
+  #         compare_columns:
+  #           - deptid
+
+  # - name: emp_yash
+  #   tests:
+  #     - dbt_utils.expression_is_true:
+  #         expression: " location is not null"
+
+  # - name : emp_yash
+  #   tests:
+  #     - dbt_utils.recency:
+  #         datepart: year
+  #         field: ldts
+  #         interval: -2
+  #         # ignore_time_component : True
+
+# most_recent value > treshold then it is good
+  - name: emp_yash
     columns:
-      - name: deptid
+      - name: ldts
         tests:
-          - relationships:
-              to: ref('emp_yash')
-              field: deptid
+          - dbt_utils.not_constant
