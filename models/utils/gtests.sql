@@ -16,5 +16,11 @@
 
 ----------------------------------------
 
+{% set ads_relations = dbt_utils.get_relations_by_pattern('dbt_sandbox', 'emp_y%') %}
 
+{% set table_names = [] %}
+{% for relation in ads_relations %}
+    {% do table_names.append(relation.name) %}
+{% endfor %}
 
+select {{ table_names|join(', ') }}
