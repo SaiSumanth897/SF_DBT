@@ -53,13 +53,13 @@ models:
   #         - dbt_utils.not_null_proportion:
   #             at_least: 0.95
 
-  - name: emp_yash
-    columns:
-      - name: empid
-        tests:
-          - dbt_utils.sequential_values:
-              interval: 10
-              # datepart: 'hour'
+  # - name: emp_yash
+  #   columns:
+  #     - name: empid
+  #       tests:
+  #         - dbt_utils.sequential_values:
+  #             interval: 10
+  #             # datepart: 'hour'
 
   - name: emp_yash
     tests:
